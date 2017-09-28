@@ -19,8 +19,9 @@ public class CreateMessageActivity extends AppCompatActivity {
         EditText messageView = (EditText) findViewById(R.id.message);
         String messageText = messageView.getText().toString();
         // Создание Intent'а
-        Intent intent = new Intent(this, ReceiveMessageActivity.class);
-        intent.putExtra(ReceiveMessageActivity.EXTRA_MESSAGE, messageText);
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_TEXT, messageText);
         // Открытие второй активности.
         startActivity(intent);
 
